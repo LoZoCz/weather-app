@@ -1,0 +1,43 @@
+1. Tailwind
+    npm install -D tailwindcss postcss autoprefixer
+    npx tailwindcss init -p
+
+    content: [
+        "./index.html",
+        "./src/**/*.{js,ts,jsx,tsx}",
+    ],
+
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+2. Sass
+    npm install --save sass
+
+3. Font Awesome
+    npm i --save @fortawesome/fontawesome-svg-core
+    npm install --save @fortawesome/free-solid-svg-icons
+    npm install --save @fortawesome/react-fontawesome
+
+4. React-router-dom
+    npm i react-router-dom --save-dev
+
+5. Vitest
+    npm install -D vitest
+
+6. Jest
+    npm i jest --save-dev
+
+7. Testing library
+    npm i @testing-library/react --save-dev
+    npm i @testing-library/user-event --save-dev
+    npm i @testing-library/jest-dom --save-dev
+
+8. Axios
+    npm i axios --save
+
+9. gh-pages
+    npm i gh-pages --save-dev
+
+10. Main API
+    https://openweathermap.org/current
