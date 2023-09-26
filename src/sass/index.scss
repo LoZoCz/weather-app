@@ -1,3 +1,33 @@
+@import url("https://fonts.bunny.net/css?family=nunito:200,300,400,500,600,700,800,900");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f5f5f5;
+  color: #020617;
+  font-family: "Nunito", sans-serif;
+  margin: 0;
+
+  #root {
+    height: 100vh;
+  }
+}
+
+html.dark body {
+  background-color: #020617;
+  color: #f5f5f5;
+}
+
+.nunito {
+  font-family: "Nunito", sans-serif;
+}
+
+.left-35p {
+  left: 35%;
+}
