@@ -6,7 +6,7 @@ import {
   SmallInfo,
   BottomInfo,
 } from "./components/export";
-import "./sass/index.scss";
+import "./styles/index.scss";
 import { fetchFromAPI } from "./utils/fetchFromAPI";
 import { darkThemeUser, WeatherData } from "./utils/helpers";
 import { useEffect, useState } from "react";
