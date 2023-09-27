@@ -12,10 +12,12 @@ export const SearchForm = ({ setMainValue }: SearchFormProps) => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     handleValue();
   };
+
   const handleValue = () => {
     if (inputValue === "") return;
 
@@ -23,10 +25,11 @@ export const SearchForm = ({ setMainValue }: SearchFormProps) => {
 
     setInputValue("");
   };
+
   return (
-    <form className="flex gap-6 flex-1" onSubmit={handleSubmit}>
+    <form className="flex gap-2 flex-1 md:gap-4" onSubmit={handleSubmit}>
       <input
-        className="flex-1 h-16 p-2 rounded-lg text-xl outline-none dark:bg-slate-700 dark:text-neutral-100"
+        className="flex-1 h-10 p-2 rounded-lg text-xl outline-none dark:bg-slate-700 dark:text-neutral-100 md:h-16"
         type="text"
         placeholder="Search destiantion..."
         onChange={handleInputChange}
@@ -34,7 +37,7 @@ export const SearchForm = ({ setMainValue }: SearchFormProps) => {
       />
       <button
         type="submit"
-        className="bg-slate-400 w-16 rounded-lg hover:bg-slate-500 transition-all duration-200 dark:bg-slate-950 dark:text-neutral-100 dark:hover:dark:bg-slate-800"
+        className="bg-slate-400 w-10 rounded-lg hover:bg-slate-500 transition-all duration-200 dark:bg-slate-950 dark:text-neutral-100 dark:hover:dark:bg-slate-800 md:w-16"
       >
         <FontAwesomeIcon icon={faMagnifyingGlass} />
       </button>

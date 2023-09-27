@@ -121,7 +121,7 @@ export const startLocations = [
 ];
 
 const weatherStyles =
-  "absolute top-1/2 -translate-y-1/2 left-35p h-4/5 opacity-10";
+  "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-4/5 opacity-10";
 
 export const weatherIcons = [
   {
@@ -242,72 +242,3 @@ export const bottomIcons = [
     icon: <FontAwesomeIcon className={bottomStyles} icon={faEye} />,
   },
 ];
-
-export const kelIntoCelc = (kelvin: number | undefined): number => {
-  const celsius = kelvin === undefined ? 0 : kelvin - 273.15;
-  return Math.round(celsius);
-};
-
-export const upperFirstLetter = (str: string | undefined | null): string => {
-  return str === undefined || str === null
-    ? ""
-    : str.charAt(0).toUpperCase() + str.slice(1);
-};
-
-export const unixToNowHours = (unix: number | undefined): string => {
-  const data = unix === undefined ? new Date() : new Date(unix * 1000);
-
-  const godzina = data.getHours();
-  const minuta = data.getMinutes();
-
-  const godzinaFormatowana = String(godzina).padStart(2, "0");
-  const minutaFormatowana = String(minuta).padStart(2, "0");
-
-  return `${godzinaFormatowana}:${minutaFormatowana}`;
-};
-
-export const findWeatherIconByName = (name: string | undefined) => {
-  const iconData = weatherIcons.find((icon) => icon?.name === name);
-  return iconData?.icon || <FontAwesomeIcon icon={faCloud} />;
-};
-
-export const sunType = (name: string) => {
-  const iconData = sunCardType.find((icon) => icon?.name === name);
-  return iconData?.icon;
-};
-
-export const bottomCardType = (name: string) => {
-  const iconData = bottomIcons.find((icon) => icon?.name === name);
-  return iconData?.icon;
-};
-
-export const convertMStoKMH = (metersPerSecond: number | undefined): number => {
-  const metersInKilometer = 1000;
-  const secondsInHour = 3600;
-
-  const kilometersPerHour =
-    metersPerSecond === undefined
-      ? 0
-      : metersPerSecond / metersInKilometer / secondsInHour;
-
-  return Math.floor(kilometersPerHour);
-};
-
-export const darkMode = () => {
-  document.documentElement.classList.toggle("dark");
-  localStorage.setItem(
-    "theme",
-    document.documentElement.classList.contains("dark") ? "dark" : "light",
-  );
-};
-
-export const darkThemeUser = () => {
-  const prefersDarkMode = window.matchMedia(
-    "(prefers-color-scheme: dark)",
-  ).matches;
-  const storedTheme = localStorage.getItem("theme");
-
-  if (storedTheme === "dark" || (storedTheme === null && prefersDarkMode)) {
-    document.documentElement.classList.add("dark");
-  }
-};

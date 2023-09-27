@@ -1,9 +1,8 @@
 import {
   kelIntoCelc,
   upperFirstLetter,
-  unixToNowHours,
   findWeatherIconByName,
-} from "../utils/helpers";
+} from "../utils/funcs";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTemperatureArrowUp,
@@ -13,10 +12,11 @@ import { WeatherData } from "../utils/helpers";
 
 type MainInfoProps = {
   mainData: WeatherData | null;
+  windowWidth: number;
 };
-export const MainInfo = ({ mainData }: MainInfoProps) => {
+export const MainInfo = ({ mainData, windowWidth }: MainInfoProps) => {
   return (
-    <div className="w-full row-span-2 col-span-5 bg-slate-300 rounded-lg p-5 flex flex-col relative dark:bg-slate-900">
+    <div className="w-full row-span-3 col-span-4 bg-slate-300 rounded-lg p-5 flex flex-col relative dark:bg-slate-900 2xl:col-span-5 2xl:row-span-2 xl:col-span-6 md:row-span-4">
       <h1 className="text-9xl font-bold w-fit">
         {mainData === null ? "0" : kelIntoCelc(mainData?.main?.temp)}°C
       </h1>
@@ -30,28 +30,34 @@ export const MainInfo = ({ mainData }: MainInfoProps) => {
           ? "----"
           : upperFirstLetter(mainData?.weather[0]?.description)}
       </p>
-      <p className="text-4xl font-bold w-fit absolute top-5 right-5">
-        {mainData === null ? "--:--" : unixToNowHours(mainData?.dt)}
-      </p>
       {mainData === null
         ? ""
         : findWeatherIconByName(mainData?.weather[0]?.icon)}
-      <div className="absolute bottom-5 right-5">
-        <div className="flex gap-4">
-          <FontAwesomeIcon className="text-4xl" icon={faTemperatureArrowUp} />
-          <p className="text-4xl font-bold w-fit">
-            {mainData === null ? "----" : kelIntoCelc(mainData?.main?.temp_max)}
-            °C
-          </p>
+      {windowWidth > 600 && (
+        <div className="absolute bottom-5 right-5">
+          <div className="flex gap-4">
+            <FontAwesomeIcon className="text-4xl" icon={faTemperatureArrowUp} />
+            <p className="text-4xl font-bold w-fit">
+              {mainData === null
+                ? "----"
+                : kelIntoCelc(mainData?.main?.temp_max)}
+              °C
+            </p>
+          </div>
+          <div className="flex gap-4">
+            <FontAwesomeIcon
+              className="text-4xl"
+              icon={faTemperatureArrowDown}
+            />
+            <p className="text-4xl font-bold w-fit">
+              {mainData === null
+                ? "----"
+                : kelIntoCelc(mainData?.main?.temp_min)}
+              °C
+            </p>
+          </div>
         </div>
-        <div className="flex gap-4">
-          <FontAwesomeIcon className="text-4xl" icon={faTemperatureArrowDown} />
-          <p className="text-4xl font-bold w-fit">
-            {mainData === null ? "----" : kelIntoCelc(mainData?.main?.temp_min)}
-            °C
-          </p>
-        </div>
-      </div>
+      )}
     </div>
   );
 };
