@@ -26,6 +26,8 @@ function App() {
       });
   }, [mainValue]);
 
+  console.log(mainData);
+
   return (
     <main className="w-full h-full grid grid-cols-8 grid-rows-4 p-6 gap-6">
       <Logo />

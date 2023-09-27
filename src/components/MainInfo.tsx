@@ -31,7 +31,9 @@ export const MainInfo = ({ mainData }: MainInfoProps) => {
           : upperFirstLetter(mainData?.weather[0]?.description)}
       </p>
       <p className="text-4xl font-bold w-fit absolute top-5 right-5">
-        {mainData === null ? "--:--" : unixToNowHours(mainData?.dt)}
+        {mainData === null
+          ? "--:--"
+          : unixToNowHours(mainData?.dt, mainData?.timezone)}
       </p>
       {mainData === null
         ? ""
