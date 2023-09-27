@@ -29,7 +29,7 @@ export const SearchForm = ({ setMainValue }: SearchFormProps) => {
   return (
     <form className="flex gap-2 flex-1 md:gap-4" onSubmit={handleSubmit}>
       <input
-        className="flex-1 h-10 p-2 rounded-lg text-xl outline-none dark:bg-slate-700 dark:text-neutral-100 md:h-16"
+        className="flex-1 w-24 h-10 p-2 rounded-lg text-xl outline-none dark:bg-slate-700 dark:text-neutral-100 md:h-16"
         type="text"
         placeholder="Search destiantion..."
         onChange={handleInputChange}

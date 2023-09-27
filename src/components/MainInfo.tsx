@@ -17,7 +17,7 @@ type MainInfoProps = {
 export const MainInfo = ({ mainData, windowWidth }: MainInfoProps) => {
   return (
     <div className="w-full row-span-3 col-span-4 bg-slate-300 rounded-lg p-5 flex flex-col relative dark:bg-slate-900 2xl:col-span-5 2xl:row-span-2 xl:col-span-6 md:row-span-4">
-      <h1 className="text-9xl font-bold w-fit">
+      <h1 className="text-8xl font-bold w-fit sm:text-9xl">
         {mainData === null ? "0" : kelIntoCelc(mainData?.main?.temp)}°C
       </h1>
       <p className="text-4xl font-bold w-fit">

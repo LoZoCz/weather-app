@@ -10,7 +10,7 @@ type setMainValue = {
 
 export const SearchBar = ({ setMainValue, windowWidth }: setMainValue) => {
   return (
-    <div className="w-full col-span-4 row-span-1 bg-slate-300 rounded-lg flex justify-between items-center gap-6 md:gap-12 p-6 md:p-8 dark:bg-slate-900 2xl:row-span-1 xl:col-span-6 xl:row-span-2 md:row-span-1">
+    <div className="w-full col-span-4 row-span-1 bg-slate-300 rounded-lg flex justify-between items-center gap-6 md:gap-12 p-2 md:p-6 dark:bg-slate-900 2xl:row-span-1 xl:col-span-6 xl:row-span-2 md:row-span-1 sm:p-8">
       <SearchForm setMainValue={setMainValue} />
       {windowWidth > 600 && (
         <button

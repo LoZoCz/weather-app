@@ -39,7 +39,7 @@ function App() {
   }, [mainValue]);
 
   return (
-    <main className="order-1 w-full h-full grid p-6 gap-6 main-cont grid-cols-4 grid-rows-6 2xl:grid-cols-8 2xl:grid-rows-4 xl:grid-cols-6 md:grid-rows-5">
+    <main className="order-1 w-full h-full grid p-2 gap-6 main-cont grid-cols-4 grid-rows-6 2xl:grid-cols-8 2xl:grid-rows-4 xl:grid-cols-6 md:grid-rows-5 sm:p-6">
       {windowWidth > 1536 && <Logo />}
       <SearchBar setMainValue={setMainValue} windowWidth={windowWidth} />
       <MainInfo mainData={mainData} windowWidth={windowWidth} />
