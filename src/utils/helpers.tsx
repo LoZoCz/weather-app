@@ -254,15 +254,8 @@ export const upperFirstLetter = (str: string | undefined | null): string => {
     : str.charAt(0).toUpperCase() + str.slice(1);
 };
 
-export const unixToNowHours = (
-  unix: number | undefined,
-  timezoneOffset: number | undefined,
-): string => {
+export const unixToNowHours = (unix: number | undefined): string => {
   const data = unix === undefined ? new Date() : new Date(unix * 1000);
-
-  timezoneOffset === undefined
-    ? new Date()
-    : data.setUTCMinutes(data.getUTCMinutes() + timezoneOffset / 60);
 
   const godzina = data.getHours();
   const minuta = data.getMinutes();
@@ -272,6 +265,7 @@ export const unixToNowHours = (
 
   return `${godzinaFormatowana}:${minutaFormatowana}`;
 };
+
 export const findWeatherIconByName = (name: string | undefined) => {
   const iconData = weatherIcons.find((icon) => icon?.name === name);
   return iconData?.icon || <FontAwesomeIcon icon={faCloud} />;
